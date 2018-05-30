@@ -1,0 +1,51 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files (x86)\\nodejs\\node.exe',
+1 verbose cli   'C:\\Users\\B155 FIRE\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'adduser' ]
+2 info using npm@4.0.5
+3 info using node@v6.9.4
+4 verbose adduser before first PUT { _id: 'org.couchdb.user:pantonyr',
+4 verbose adduser   name: 'pantonyr',
+4 verbose adduser   password: 'XXXXX',
+4 verbose adduser   email: 'pantonyr@gmail.com',
+4 verbose adduser   type: 'user',
+4 verbose adduser   roles: [],
+4 verbose adduser   date: '2018-05-30T19:54:41.120Z' }
+5 verbose request uri https://registry.npmjs.org/-/user/org.couchdb.user:pantonyr
+6 verbose request new user, so can't send auth
+7 info attempt registry request try #1 at 16:54:41
+8 verbose request id 29ef7fea65950f59
+9 http request PUT https://registry.npmjs.org/-/user/org.couchdb.user:pantonyr
+10 http 201 https://registry.npmjs.org/-/user/org.couchdb.user:pantonyr
+11 verbose headers { date: 'Wed, 30 May 2018 19:54:43 GMT',
+11 verbose headers   'content-type': 'application/json',
+11 verbose headers   'transfer-encoding': 'chunked',
+11 verbose headers   connection: 'keep-alive',
+11 verbose headers   'set-cookie': [ '__cfduid=d45446ed3b8de93f9ad825f948eaa2ae61527710081; expires=Thu, 30-May-19 19:54:41 GMT; path=/; domain=.registry.npmjs.org; HttpOnly; Secure' ],
+11 verbose headers   'content-encoding': 'gzip',
+11 verbose headers   'cf-ray': '4233c10afe234ac1-GRU',
+11 verbose headers   'expect-ct': 'max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"',
+11 verbose headers   server: 'cloudflare' }
+12 verbose request invalidating C:\Users\B155 FIRE\AppData\Roaming\npm-cache\registry.npmjs.org\-\user\org.couchdb.user_3Apantonyr on PUT
+13 info adduser Authorized user pantonyr
+14 verbose stack Error: EPERM: operation not permitted, open 'C:\Users\B155 FIRE\.npmrc'
+14 verbose stack     at Error (native)
+15 verbose cwd D:\code\peterantonyrausch-cordova-plugin-ratio-crop\cordova-plugin-ratio-crop
+16 error Windows_NT 10.0.17134
+17 error argv "C:\\Program Files (x86)\\nodejs\\node.exe" "C:\\Users\\B155 FIRE\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js" "adduser"
+18 error node v6.9.4
+19 error npm  v4.0.5
+20 error path C:\Users\B155 FIRE\.npmrc
+21 error code EPERM
+22 error errno -4048
+23 error syscall open
+24 error Error: EPERM: operation not permitted, open 'C:\Users\B155 FIRE\.npmrc'
+24 error     at Error (native)
+24 error  { Error: EPERM: operation not permitted, open 'C:\Users\B155 FIRE\.npmrc'
+24 error     at Error (native)
+24 error   errno: -4048,
+24 error   code: 'EPERM',
+24 error   syscall: 'open',
+24 error   path: 'C:\\Users\\B155 FIRE\\.npmrc' }
+25 error Please try running this command again as root/Administrator.
+26 verbose exit [ -4048, true ]
