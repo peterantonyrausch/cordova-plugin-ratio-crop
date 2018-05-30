@@ -23,14 +23,29 @@
             <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
         </config-file>
 
-        <source-file src="src/android/RatioCrop.java" target-dir="src/cordova-plugin-ratio-crop/RatioCrop" />
+        <source-file src="src/android/RatioCrop.java" target-dir="src/com/peterantonyrausch/ratiocrop" />
     </platform>
     <platform name="ios">
         <config-file parent="/*" target="config.xml">
             <feature name="RatioCrop">
-                <param name="ios-package" value="com.peterantonyrausch.ratiocrop" />
+                <param name="ios-package" value="RatioCrop" />
             </feature>
         </config-file>
+        <header-file src="src/ios/RatioCrop.h" />
         <source-file src="src/ios/RatioCrop.m" />
+        <header-file src="src/ios/Lib/PECropRectView.h" />
+        <source-file src="src/ios/Lib/PECropRectView.m" />
+        <header-file src="src/ios/Lib/PECropView.h" />
+        <source-file src="src/ios/Lib/PECropView.m" />
+        <header-file src="src/ios/Lib/PECropViewController.h" />
+        <source-file src="src/ios/Lib/PECropViewController.m" />
+        <header-file src="src/ios/Lib/PEResizeControl.h" />
+        <source-file src="src/ios/Lib/PEResizeControl.m" />
+        <header-file src="src/ios/Lib/UIImage+PECrop.h" />
+        <source-file src="src/ios/Lib/UIImage+PECrop.m" />
+        <resource-file src="src/ios/Lib/PEPhotoCropEditor.bundle" />
+
+        <framework src="QuartzCore.framework" />
+        <framework src="AVFoundation.framework" />
     </platform>
 </plugin>
