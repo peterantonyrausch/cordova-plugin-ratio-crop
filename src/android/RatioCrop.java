@@ -1,4 +1,4 @@
-package com.peterantonyrausch.ratiocrop;
+package com.peterantonyrausch.crop;
 
 import android.app.Activity;
 import android.content.Intent;

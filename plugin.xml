@@ -1,36 +1,29 @@
 <?xml version='1.0' encoding='utf-8'?>
-<plugin id="cordova-plugin-ratio-crop" version="1.0.0" 
-    xmlns="http://apache.org/cordova/ns/plugins/1.0" 
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" 
+    xmlns:android="http://schemas.android.com/apk/res/android" id="cordova-plugin-ratio-crop" version="1.1.0">
+
     <name>RatioCrop</name>
+
+    <description>Crop an image in a Cordova app</description>
+
+    <license>MIT</license>
+
+    <engines>
+        <engine name="cordova-android" version=">=4.0.0" />
+        <engine name="cordova-ios" version=">=3.5.0" />
+    </engines>
+
     <js-module name="RatioCrop" src="www/RatioCrop.js">
-        <clobbers target="cordova.plugins.RatioCrop" />
+        <clobbers target="plugins.ratioCrop" />
     </js-module>
-    <platform name="android">
-        <config-file parent="/*" target="res/xml/config.xml">
-            <feature name="RatioCrop">
-                <param name="android-package" value="com.peterantonyrausch.ratiocrop" />
-            </feature>
-        </config-file>
 
-        <framework src="com.soundcloud.android:android-crop:1.0.0@aar" />
-
-        <config-file target="AndroidManifest.xml" parent="/manifest/application">
-            <activity android:name="com.soundcloud.android.crop.CropImageActivity" />
-        </config-file>
-
-        <config-file target="AndroidManifest.xml" parent="/manifest">
-            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-        </config-file>
-
-        <source-file src="src/android/RatioCrop.java" target-dir="src/com/peterantonyrausch/ratiocrop" />
-    </platform>
     <platform name="ios">
         <config-file parent="/*" target="config.xml">
             <feature name="RatioCrop">
                 <param name="ios-package" value="RatioCrop" />
             </feature>
         </config-file>
+
         <header-file src="src/ios/RatioCrop.h" />
         <source-file src="src/ios/RatioCrop.m" />
         <header-file src="src/ios/Lib/PECropRectView.h" />
@@ -48,4 +41,25 @@
         <framework src="QuartzCore.framework" />
         <framework src="AVFoundation.framework" />
     </platform>
+
+    <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="RatioCrop">
+                <param name="android-package" value="com.peterantonyrausch.crop.RatioCrop" />
+            </feature>
+        </config-file>
+
+        <framework src="com.soundcloud.android:android-crop:1.0.0@aar" />
+
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <activity android:name="com.soundcloud.android.crop.CropImageActivity" />
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+        </config-file>
+
+        <source-file src="src/android/RatioCrop.java" target-dir="src/com/peterantonyrausch/crop" />
+    </platform>
+
 </plugin>
