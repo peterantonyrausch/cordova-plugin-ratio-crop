@@ -51,7 +51,7 @@
      CGFloat croperHeight;
 
    if (self.widthRatio < 0 || self.heightRatio < 0){
-        cropController.keepingCropAspectRatio = YES;
+        cropController.keepingCropAspectRatio = NO;
          croperWidth = MIN(width, height);
          croperHeight = MIN(width, height); 
     } else {
