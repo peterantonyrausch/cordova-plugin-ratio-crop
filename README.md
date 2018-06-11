@@ -9,15 +9,11 @@ $ npm install --save @ionic-native/camera
 
 $ ionic cordova plugin add cordova-plugin-ratio-crop
 $ npm install --save ionic-cordova-plugin-ratio-crop
-
-$ ionic cordova plugin add com-badrit-base64
-$ npm install --save @ionic-native/base64
 ```
 
 2. Add plugins to _providers_ section on your app's module
 ```js
 import { RatioCrop } from 'ionic-cordova-plugin-ratio-crop';
-import { Base64 } from '@ionic-native/base64';
 import { Camera } from '@ionic-native/camera';
 
 ...
@@ -37,7 +33,6 @@ import { Camera } from '@ionic-native/camera';
     ...
     Camera,
     RatioCrop,
-    Base64,
     ...
   ]
 })
@@ -53,7 +48,6 @@ export class AppModule { }
 ```js
 import { Camera } from '@ionic-native/camera';
 import { RatioCrop, RatioCropOptions } from 'ionic-cordova-plugin-ratio-crop';
-import { Base64 } from '@ionic-native/base64';
 
 ...
 
@@ -69,8 +63,7 @@ private cropOptions: RatioCropOptions = {
 
 constructor(
     private camera: Camera,
-    private crop: RatioCrop,
-    private base64: Base64) { }
+    private crop: RatioCrop) { }
 
 ...
 
@@ -87,7 +80,7 @@ takePicture() {
         return this.crop.ratioCrop(fileUri, this.cropOptions);
       })
       .then((path) => {
-        return this.base64.encodeFile(path);
+        return this.encodeToBase64(path);
       })
   }
 
@@ -102,8 +95,24 @@ takePicture() {
         return this.crop.ratioCrop(fileUri, this.cropOptions);
       })
       .then((path) => {
-        return this.base64.encodeFile(path);
+        return this.encodeToBase64(path);
       })
+  }
+
+  encodeToBase64(src) {
+    return new Promise((resolve, reject) => {
+      let xhr = new XMLHttpRequest();
+      xhr.onload = function () {
+        let reader = new FileReader();
+        reader.onloadend = function () {
+          resolve(reader.result);
+        }
+        reader.readAsDataURL(xhr.response);
+      };
+      xhr.open('GET', src);
+      xhr.responseType = 'blob';
+      xhr.send();
+    });
   }
   
 ```
@@ -112,7 +121,6 @@ takePicture() {
 - https://github.com/peterantonyrausch/cordova-plugin-ratio-crop
 - https://github.com/peterantonyrausch/ratio-crop
 - https://github.com/apache/cordova-plugin-camera
-- https://github.com/hazemhagrass/phonegap-base64
 - https://github.com/jeduan/cordova-plugin-crop
 - https://github.com/obeza/cordova-plugin-crop-with-ratio
 - https://github.com/qwerqwermhc/Crop
