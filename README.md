@@ -124,3 +124,12 @@ takePicture() {
 - https://github.com/jeduan/cordova-plugin-crop
 - https://github.com/obeza/cordova-plugin-crop-with-ratio
 - https://github.com/qwerqwermhc/Crop
+
+### Problems and Solutions
+#### Problem 
+"No Image Selected" error on Android 4.4 device. (Camera Plugin + Background Mode Plugin)
+##### Solution
+- https://stackoverflow.com/questions/49864382/cordova-plugin-camera-getting-no-image-selected-error-on-android-4-4-device
+- https://github.com/katzer/cordova-plugin-background-mode/issues/263#issuecomment-373455199
+##### Explanation
+- https://inthecheesefactory.com/blog/understand-android-activity-launchmode/en
